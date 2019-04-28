@@ -11,6 +11,13 @@ def contact(request):
             name= form.cleaned_data['name']
 
             print(name,rollno)
+            fo = open("user_datails.csv", "w")
+            fo.write(rollno)
+            fo.write(",")
+            fo.write(name)
+            fo.write("\n")
+            fo.close()
+
 
     form = contactform()
     return render(request,'form.html',{'form':form})
